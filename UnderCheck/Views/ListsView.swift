@@ -85,7 +85,30 @@ struct ListsView: View {
                     .environmentObject(viewModel)
             }
         } label: {
-            ListCellView(title: list.title)
+            ZStack {
+                Color(K.Colors.background)
+                    .frame(height: 50)
+                
+                VStack {
+                    HStack {
+                        Text(list.title)
+                            .foregroundColor(Color(K.Colors.label))
+                            .font(Font.custom(K.Fonts.regular, size: 18))
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color(K.Colors.accent))
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                    
+                    Divider()
+                        .overlay(Color(K.Colors.label))
+                        .padding(.horizontal)
+                }
+            }
         }
     }
 }

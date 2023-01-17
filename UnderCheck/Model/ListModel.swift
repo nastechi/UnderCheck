@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ListModel: Identifiable, Equatable {
+struct ListModel: Identifiable, Equatable {
     
     static func == (lhs: ListModel, rhs: ListModel) -> Bool {
         if lhs.id == rhs.id {
@@ -16,7 +16,6 @@ class ListModel: Identifiable, Equatable {
         return false
     }
     
-    
     enum ListType {
         case regular
         case checkBox
@@ -24,18 +23,11 @@ class ListModel: Identifiable, Equatable {
         case prosAndCons
     }
     
-    init(title: String, type: ListType, image: Image = Image(K.Images.defaultImage), items: [ListItem] = []) {
-        self.title = title
-        self.type = type
-        self.image = image
-        self.items = items
-    }
-    
     let id = UUID()
-    let title: String
+    var title: String
     let type: ListType
-    let image: Image
-    var items: [ListItem]
+    let image: Image = Image(K.Images.defaultImage)
+    var items: [ListItem] = []
 }
 
 class ListItem: Identifiable {
@@ -46,14 +38,14 @@ class ListItem: Identifiable {
     }
     
     init(name: String, isChecked: Bool? = nil, place: Int? = nil, prosAndConsType: prosAndConsType? = nil) {
-        self.name = name
+        self.text = name
         self.isChecked = isChecked
         self.place = place
         self.prosAndConsType = prosAndConsType
     }
     
     let id = UUID()
-    var name: String
+    var text: String
     var isChecked: Bool?
     var place: Int?
     var prosAndConsType: prosAndConsType?

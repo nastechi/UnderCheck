@@ -19,7 +19,6 @@
 		09329A692975498200930E60 /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A682975498200930E60 /* SingleListView.swift */; };
 		09329A6B29754A5000930E60 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A6A29754A5000930E60 /* AddListView.swift */; };
 		09329A6D29754A5C00930E60 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A6C29754A5C00930E60 /* SettingsView.swift */; };
-		09329A6F29767F8E00930E60 /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A6E29767F8E00930E60 /* ListCellView.swift */; };
 		09329A71297681FD00930E60 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A70297681FD00930E60 /* ViewExtension.swift */; };
 		09329A7829768D5D00930E60 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329A7729768D5D00930E60 /* ListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		09329A682975498200930E60 /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
 		09329A6A29754A5000930E60 /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		09329A6C29754A5C00930E60 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		09329A6E29767F8E00930E60 /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
 		09329A70297681FD00930E60 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		09329A7729768D5D00930E60 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				09329A7729768D5D00930E60 /* ListItemView.swift */,
-				09329A6E29767F8E00930E60 /* ListCellView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -218,7 +215,6 @@
 				09329A5229753A4C00930E60 /* ContentView.swift in Sources */,
 				09329A5029753A4C00930E60 /* UnderCheckApp.swift in Sources */,
 				09329A6D29754A5C00930E60 /* SettingsView.swift in Sources */,
-				09329A6F29767F8E00930E60 /* ListCellView.swift in Sources */,
 				09329A6329753C2F00930E60 /* ListsViewModel.swift in Sources */,
 				09329A6B29754A5000930E60 /* AddListView.swift in Sources */,
 				09329A71297681FD00930E60 /* ViewExtension.swift in Sources */,
