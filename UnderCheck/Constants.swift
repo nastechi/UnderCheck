@@ -9,7 +9,7 @@ struct K {
     
     struct Fonts {
         static let regular = "Manrope-Regular"
-        static let bold = "Manrope-bold"
+        static let bold = "Manrope-Bold"
     }
     
     struct Images {

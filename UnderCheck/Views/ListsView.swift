@@ -10,10 +10,26 @@ import SwiftUI
 struct ListsView: View {
     
     @EnvironmentObject private var viewModel: ListsViewModel
+    @State var settingsPresented = false
     
-    private func settingsButton() -> some View {
-        NavigationLink {
-            AddListView()
+    var body: some View {
+        ZStack{
+            Color(K.Colors.background)
+                .ignoresSafeArea()
+            ScrollView(.vertical) {
+                settingsButton
+                addButton
+                listsView
+            }
+            .sheet(isPresented: $settingsPresented) {
+                SettingsView()
+            }
+        }
+    }
+    
+    private var settingsButton: some View {
+        Button {
+            settingsPresented = true
         } label: {
             Image(systemName: "gear")
                 .foregroundColor(Color(K.Colors.label))
@@ -22,7 +38,7 @@ struct ListsView: View {
         }
     }
     
-    private func addButton() -> some View {
+    private var addButton: some View {
         NavigationLink {
             AddListView()
         } label: {
@@ -32,9 +48,11 @@ struct ListsView: View {
                     .cornerRadius(20, corners: [.topRight, .topLeft])
                 HStack {
                     Text("Add list")
+                        .font(Font.custom(K.Fonts.regular, size: 18))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         .foregroundColor(Color(K.Colors.background))
+                    
                     Image(systemName: "plus")
                         .padding(.horizontal)
                         .foregroundColor(Color(K.Colors.background))
@@ -50,7 +68,7 @@ struct ListsView: View {
         }
     }
     
-    private func listsView() -> some View {
+    private var listsView: some View {
         VStack {
             ForEach(viewModel.lists) { list in
                 listCellView(list: list)
@@ -67,54 +85,8 @@ struct ListsView: View {
                     .environmentObject(viewModel)
             }
         } label: {
-            ZStack {
-                Color(K.Colors.background)
-                    .frame(height: 50)
-                VStack {
-                    HStack {
-                        Text(list.title)
-                            .foregroundColor(Color(K.Colors.label))
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(Color(K.Colors.accent))
-                    }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                    Divider()
-                        .overlay(Color(K.Colors.label))
-                        .padding(.horizontal)
-                }
-            }
+            ListCellView(title: list.title)
         }
-    }
-    
-    var body: some View {
-        ZStack{
-            Color(K.Colors.background)
-                .ignoresSafeArea()
-            VStack {
-                settingsButton()
-                addButton()
-                listsView()
-            }
-        }
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners) )
-    }
-}
-
-struct RoundedCorner: Shape {
-
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
     }
 }
 
